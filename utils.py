@@ -1,16 +1,14 @@
-class strToDict(dict):
-    def __init__(self, string):
-        self.string = string
-        self.s = self.string.replace('{', '').replace('}', '').replace(
-            " ", "").replace("'", "").replace('"', "").split(',')
-        self.data = {self.s[i].split(":")[1]: self.s[i].split(":")[
-            0] for i in range(len(self.s))}
 
+class Converter:
+    def __init__(self, _list):
+        self._list = _list
+        self.data = []
     def __repr__(self):
-        return str(self.data)
+        return str(self._list)
 
-    def update(self, obj):
-        self.data.update(obj)
+    def _dict(self):        
+        for i in self._list:
+            x = i.replace("{","").replace("}","").split(":")
+            self.data.append(dict(id = x[0],name = x[1]))
         return self.data
-    def str(self):
-        return str(self.data)
+    

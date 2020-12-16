@@ -19,7 +19,7 @@ def authenticateUser(user_id, password):
     )
     cursor.execute(sqlquery, (user_id, password))
     data = cursor.fetchall()
-    print(True if data else False)
+    return (True if data else False)
 
 
 def getChats(user_id):
@@ -28,12 +28,11 @@ def getChats(user_id):
     )
     cursor.execute(sqlquery, (user_id,))
     data = cursor.fetchone()[0]
-    data = utils.strToDict(data) if data else {}
-    return data
+    return utils.Converter(data)._dict()
 
 
 def addChats(user_id, chat_name, chat_id):
-    chats = json.dumps(getChats(user_id).update({chat_id: chat_name}))
+    chats = json.dumps(getChats(user_id).append({chat_id: chat_name}))
 
     sqlquery = sql.SQL('update users set {chats} = %s where {user_id} = %s').format(
         chats=sql.Identifier("chats"),
