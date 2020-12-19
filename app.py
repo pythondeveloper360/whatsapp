@@ -21,6 +21,10 @@ def login():
             session['login'] = user_id
             return redirect("/")
         else:
-            print(user_id,password)
-            return ''
+            abort(404)
+@app.route("/<chat>")
+def chat(chat):
+    if 'login' in session:
+        pass
+
 app.run(debug=True)

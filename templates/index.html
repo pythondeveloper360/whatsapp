@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whatsapp</title>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'styles.css')}}">
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
      <!-- Compiled and minified JavaScript -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
+
+
+<style>
+    
+</style>
 <body>
-    <div class="collection">
-        {% for chat in chats%}
-            <a href="{{chat['id']}}" class="collection-item">{{chat['name']}}</a>
-        {%endfor%}
+   <div class="container" style="margin: 10px !important;width: 200px;">
+        <div class="collection">
+            <li class="collection-item avatar" style="list-style: none;">
+                <img src="{{url_for('static',filename = 'po.png')}}" alt="" class="circle">
+                <span class="title">Hanzala</span>
+              </li>
+            {% for chat in chats%}
+                <a href="{{chat['id']}}" class="collection-item">{{chat['name']}}</a>
+            {%endfor%}
+        </div>
+    </div>
+    <div class = 'chatting'>
+        <span class = 'mymsg'>Heloo<hr></span>
+        <br>
+        <span class = 'msg'>Helllloo<hr></span>
+        <br>
     </div>
 </body>
 </html>

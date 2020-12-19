@@ -1,0 +1,27 @@
+.container{
+    margin: 10px !important;
+    width: 200px !important;
+}
+.collection-item{
+  
+    width: 200px;
+    text-align: center;
+}
+.collection{
+    position: fixed;
+    left: 5px;
+    width: 200px;
+}
+.chatting{
+    position: fixed;
+    top:10px;
+    left: 300px;
+    width: 500px;
+}
+.mymsg{
+    float: right;
+}
+.msg{
+    float: left;
+
+}
